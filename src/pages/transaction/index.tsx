@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { IMaskInput } from "react-imask";
 
 import { api } from "../../services/api";
 
@@ -88,10 +89,12 @@ function Transaction() {
       </div>
 
       <label>CPF/CNPJ do favorecido</label>
-      <input
-        type="number"
+      <IMaskInput
+        mask="000.000.000-00"
         placeholder="000.000.000-00"
+        onAccept={(value) => console.log(value)}
         required
+        overwrite
         {...register("document")}
       />
 
@@ -124,16 +127,16 @@ function Transaction() {
           />
 
           <label>Agência</label>
-          <input
-            type="number"
+          <IMaskInput
+            mask="0000"
             placeholder="4444"
             required
             {...register("agency")}
           />
 
           <label>Conta</label>
-          <input
-            type="number"
+          <IMaskInput
+            mask="00000000-0"
             placeholder="03763500-3"
             required
             {...register("account")}
@@ -142,8 +145,14 @@ function Transaction() {
       )}
 
       <label>Valor a transferir (R$)</label>
-      <input
-        type="number"
+      <IMaskInput
+        mask={Number}
+        radix=","
+        thousandsSeparator="."
+        scale={2}
+        signed={false}
+        padFractionalZeros={true}
+        normalizeZeros={true}
         placeholder="300,00"
         required
         {...register("price", { valueAsNumber: true })}
