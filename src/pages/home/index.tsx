@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 import { api } from "../../services/api";
-import { dateFormatter, priceFormatter } from "../utils/formatter";
+import { dateFormatter, priceFormatter } from "../../utils/formatter";
 
 import styles from "./style.module.css";
 
@@ -29,6 +30,7 @@ interface TransactionRequest {
 }
 
 function Home() {
+  const navigate = useNavigate();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [user, setUser] = useState<User>({
     id: 1,
@@ -53,6 +55,10 @@ function Home() {
       });
   }, [user]);
 
+  function handleNavigateToTransactionPage() {
+    navigate('/transaction');
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>MAGNUM BANK</header>
@@ -63,8 +69,8 @@ function Home() {
       </section>
 
       <section className={styles.actions}>
-        <button>Transferir</button>
-        <button>Pagar</button>
+        <button onClick={handleNavigateToTransactionPage}>Transferir</button>
+        <button onClick={handleNavigateToTransactionPage}>Pagar</button>
       </section>
 
       <section className={styles.transactions}>
