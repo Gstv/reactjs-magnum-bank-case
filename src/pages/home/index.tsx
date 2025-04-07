@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { api } from "../../services/api";
+import { dateFormatter, priceFormatter } from "../utils/formatter";
 
 import styles from "./style.module.css";
 
@@ -58,7 +59,7 @@ function Home() {
 
       <section className={styles.balanceCard}>
         <h2>Saldo disponível</h2>
-        <p className={styles.balance}>R$ {user.balance}</p>
+        <p className={styles.balance}>{priceFormatter.format(user.balance)}</p>
       </section>
 
       <section className={styles.actions}>
@@ -74,12 +75,12 @@ function Home() {
               <div className={styles.transactionDetail}>
                 <span>{transaction.transactionType}</span>
                 <span className={styles.negative}>
-                  {transaction.type === "income" ? "+" : "-"}R${" "}
-                  {transaction.price}
+                  {transaction.type === "income" ? "+" : "-"}
+                  {priceFormatter.format(transaction.price)}
                 </span>
               </div>
               <div className={styles.transactionDate}>
-                {transaction.createdAt}
+                {dateFormatter.format(new Date(transaction.createdAt))}
               </div>
             </li>
           ))}
