@@ -18,16 +18,13 @@ interface User {
   balance: number;
 }
 
-interface UserRequest {
-  transactions: [
-    {
-      id: number;
-      transaction_type: string;
-      type: string;
-      price: number;
-      created_at: Date;
-    }
-  ];
+interface TransactionRequest {
+  id: number;
+  transaction_type: string;
+  type: string;
+  price: number;
+  created_at: Date;
+  user_id: number;
 }
 
 function Home() {
@@ -40,10 +37,10 @@ function Home() {
 
   useEffect(() => {
     api
-      .get<UserRequest>(`users/${user.id}`)
-      .then(({ data: { transactions } }) => {
+      .get<TransactionRequest[]>(`transactions/?user_id=${user.id}`)
+      .then(({ data }) => {
         setTransactions(
-          transactions.map((transaction) => ({
+          data.map((transaction) => ({
             ...transaction,
             transactionType: transaction.transaction_type,
             createdAt: transaction.created_at,

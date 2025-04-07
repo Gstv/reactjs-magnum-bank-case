@@ -1,6 +1,29 @@
+import { useEffect } from "react";
+
+import { api } from "../../services/api";
+
 import styles from "./style.module.css";
 
 function Transaction() {
+  const newTransaction = {
+    transaction_type: "TED",
+    type: "income",
+    price: 800,
+    created_at: "2025-01-29T19:24:44.505Z",
+    user_id: 1,
+  };
+
+  useEffect(() => {
+    api
+      .post(`transactions`, newTransaction)
+      .then(({ data }) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar dados:", error);
+      });
+  }, []);
+
   return (
     <div className={styles.container}>
       <h1>MAGNUM BANK</h1>
