@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "recipient_email": "gstv.almeida@gmail.com",
+      "recipient_password": "senha123",
+      "recipient_name": "Gustavo André",
+      "current_balance": 5000,
+      "agency_number": "7048",
+      "account_number": "718352",
+      "pix_key": "04580453735",
+      "recipient_cpf": "04580453735",
+      "recipient_cnpj": "",
+      "transaction_password": "12344",
+      "transactions": [
+        {
+          "id": 1,
+          "transaction_type": "Pix",
+          "type": "income",
+          "price": 1400,
+          "createdAt": "2024-07-29T19:36:44.505Z"
+        },
+        {
+          "id": 2,
+          "transaction_type": "TED",
+          "type": "outcome",
+          "price": 60,
+          "createdAt": "2024-07-29T19:30:44.505Z"
+        },
+        {
+          "id": 3,
+          "transaction_type": "Pix",
+          "type": "outcome",
+          "price": 1980,
+          "createdAt": "2024-07-29T19:24:44.505Z"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "recipient_email": "joao@gmail.com",
+      "recipient_password": "senha123",
+      "recipient_name": "João Silva",
+      "current_balance": 1000,
+      "agency_number": "8216",
+      "account_number": "626880",
+      "pix_key": "joao@gmail.com",
+      "recipient_cpf": "",
+      "recipient_cnpj": "87562667000166",
+      "transaction_password": "12344",
+      "transactions": [
+        {
+          "id": 1,
+          "transaction_type": "Pix",
+          "type": "outcome",
+          "price": 400,
+          "createdAt": "2024-07-29T19:36:44.505Z"
+        },
+        {
+          "id": 2,
+          "transaction_type": "TED",
+          "type": "outcome",
+          "price": 60,
+          "createdAt": "2024-07-29T19:30:44.505Z"
+        },
+        {
+          "id": 3,
+          "transaction_type": "TED",
+          "type": "income",
+          "price": 80,
+          "createdAt": "2024-07-29T19:24:44.505Z"
+        }
+      ]
+    }
+  ]
+}
