@@ -13,7 +13,7 @@
       "password": "$2a$10$KHDzEMvHAWs93Q8PvHFCAOa/9Fxp8iOzhpU1x4VGfzlW0sqoa5tdq",
       "name": "Teste",
       "id": 2,
-      "balance": 0,
+      "balance": 600,
       "document": "20220166000"
     },
     {
@@ -24,161 +24,139 @@
       "account_number": "06832512",
       "pix_key": "10220166000",
       "transaction_password": "1234",
-      "balance": 0,
+      "balance": 700,
       "document": "10220166000",
       "id": 3
     }
   ],
   "transactions": [
     {
-      "id": "1",
-      "transaction_type": "Pix",
+      "transaction_type": "TED",
+      "document": "50220166000",
+      "name": "1",
+      "bank": "1",
+      "agency": "1",
+      "account": "1",
+      "price": 10,
+      "created_at": "2025-04-07",
+      "password": "1",
+      "user_id": 3,
+      "type": "outcome",
+      "id": 1
+    },
+    {
+      "transaction_type": "TED",
+      "document": "50220166000",
+      "name": "1",
+      "bank": "1",
+      "agency": "1",
+      "account": "1",
+      "price": 10,
+      "created_at": "2025-04-07",
+      "password": "1",
+      "user_id": 1,
       "type": "income",
-      "price": 1400,
-      "created_at": "2024-07-29T19:36:44.505Z",
-      "user_id": 1
+      "id": 2
     },
     {
-      "id": "2",
       "transaction_type": "TED",
+      "document": "20220166000",
+      "name": "1",
+      "bank": "1",
+      "agency": "1",
+      "account": "1",
+      "price": 300,
+      "created_at": "2025-04-08",
+      "password": "1",
+      "user_id": 3,
       "type": "outcome",
-      "price": 60,
-      "created_at": "2024-07-29T19:30:44.505Z",
-      "user_id": 1
+      "balance": 700,
+      "id": 3
     },
     {
-      "id": "3",
-      "transaction_type": "Pix",
-      "type": "outcome",
-      "price": 1980,
-      "created_at": "2024-07-29T19:24:44.505Z",
-      "user_id": 1
-    },
-    {
-      "id": "4",
-      "transaction_type": "Pix",
-      "type": "outcome",
-      "price": 400,
-      "created_at": "2024-07-29T19:36:44.505Z",
-      "user_id": 2
-    },
-    {
-      "id": "5",
       "transaction_type": "TED",
-      "type": "outcome",
-      "price": 60,
-      "created_at": "2024-07-29T19:30:44.505Z",
-      "user_id": 2
-    },
-    {
-      "id": "6",
-      "transaction_type": "TED",
+      "document": "20220166000",
+      "name": "1",
+      "bank": "1",
+      "agency": "1",
+      "account": "1",
+      "price": 300,
+      "created_at": "2025-04-08",
+      "password": "1",
+      "user_id": 2,
       "type": "income",
-      "price": 80,
-      "created_at": "2024-07-29T19:24:44.505Z",
-      "user_id": 1
+      "balance": 300,
+      "id": 4
     },
     {
-      "id": "842d",
       "transaction_type": "TED",
-      "type": "income",
-      "price": 800,
-      "created_at": "2025-01-29T19:24:44.505Z",
-      "user_id": 1
+      "document": "20220166000",
+      "name": "1",
+      "bank": "1",
+      "agency": "1",
+      "account": "1",
+      "price": 300,
+      "created_at": "2025-04-07",
+      "password": "1",
+      "user_id": 3,
+      "type": "outcome",
+      "id": 5
     },
     {
-      "id": "a9b4",
+      "transaction_type": "TED",
+      "document": "20220166000",
+      "name": "1",
+      "bank": "1",
+      "agency": "1",
+      "account": "1",
+      "price": 300,
+      "created_at": "2025-04-07",
+      "password": "1",
+      "user_id": 3,
+      "type": "outcome",
+      "id": 6
+    },
+    {
+      "transaction_type": "TED",
+      "document": "20220166000",
+      "name": "1",
+      "bank": "1",
+      "agency": "1",
+      "account": "1",
+      "price": 300,
+      "created_at": "2025-04-07",
+      "password": "1",
+      "user_id": 2,
+      "type": "income",
+      "id": 7
+    },
+    {
       "transaction_type": "TED",
       "document": "1",
       "name": "1",
       "bank": "1",
       "agency": "1",
       "account": "1",
-      "price": 1,
-      "created_at": "2025-04-08",
+      "price": 700,
+      "created_at": "2025-04-07",
       "password": "1",
-      "type": "income",
-      "user_id": 1
+      "user_id": 2,
+      "type": "outcome",
+      "id": 8
     },
     {
       "transaction_type": "TED",
+      "document": "1",
       "name": "1",
       "bank": "1",
-      "created_at": "2025-04-07",
+      "agency": "1",
+      "account": "1",
+      "price": 3000,
+      "created_at": "2025-03-31",
       "password": "1",
-      "type": "income",
-      "user_id": 1,
-      "id": "kVPWmfb"
-    },
-    {
-      "transaction_type": "TED",
-      "name": "2",
-      "bank": "2",
-      "created_at": "2025-04-07",
-      "password": "2",
-      "type": "income",
-      "user_id": 1,
-      "id": "nJwQ28R"
-    },
-    {
-      "transaction_type": "TED",
-      "name": "2",
-      "bank": "2",
-      "created_at": "2025-04-07",
-      "password": "2",
-      "type": "income",
-      "user_id": 202695,
-      "id": "BDnyhQc"
-    },
-    {
-      "transaction_type": "TED",
-      "name": "2",
-      "bank": "2",
-      "created_at": "2025-04-09",
-      "password": "2",
-      "type": "income",
-      "user_id": 315123,
-      "id": "78mYcaf"
-    },
-    {
-      "transaction_type": "TED",
-      "name": "1",
-      "bank": "1",
-      "created_at": "2025-04-07",
-      "password": "1",
-      "type": "income",
-      "user_id": 165540,
-      "id": "QKoW-jg"
-    },
-    {
-      "transaction_type": "TED",
-      "name": "1",
-      "bank": "2",
-      "created_at": "2025-04-07",
-      "password": "2",
-      "type": "income",
-      "user_id": 570431,
-      "id": "C9vrVGL"
-    },
-    {
-      "transaction_type": "TED",
-      "name": "2",
-      "bank": "2",
-      "created_at": "2025-04-09",
-      "password": "2",
-      "type": "income",
-      "user_id": 865967,
-      "id": "BRQN6Sw"
-    },
-    {
-      "transaction_type": "TED",
-      "name": "2",
-      "bank": "2",
-      "created_at": "2025-04-07",
-      "password": "2",
-      "type": "income",
-      "user_id": 980491,
-      "id": "yuu9GTj"
+      "user_id": 2,
+      "type": "outcome",
+      "id": 9
     }
   ]
 }

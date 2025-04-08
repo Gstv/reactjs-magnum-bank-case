@@ -67,3 +67,9 @@ select {
   font-size: 16px;
   cursor: pointer;
 }
+
+.alertBalance {
+  color: red;
+  font-size: 12px;
+  margin-top: -12px;
+}
