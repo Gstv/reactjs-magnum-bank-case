@@ -68,7 +68,7 @@ select {
   cursor: pointer;
 }
 
-.alertBalance {
+.alertInput {
   color: red;
   font-size: 12px;
   margin-top: -12px;

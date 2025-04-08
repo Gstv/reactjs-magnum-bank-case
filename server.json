@@ -6,7 +6,8 @@
       "name": "Admin",
       "id": 1,
       "balance": 0,
-      "document": "50220166000"
+      "document": "50220166000",
+      "transaction_password": "1111"
     },
     {
       "email": "teste@test.com",
@@ -14,7 +15,8 @@
       "name": "Teste",
       "id": 2,
       "balance": 600,
-      "document": "20220166000"
+      "document": "20220166000",
+      "transaction_password": "3333"
     },
     {
       "email": "mariano@teste.com",

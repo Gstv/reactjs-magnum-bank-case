@@ -12,7 +12,7 @@ interface User {
   id: number;
   name: string;
   balance: number;
-  transactionPassword: number;
+  transactionPassword: string;
 }
 
 interface BaseProps {
@@ -56,8 +56,10 @@ function Transaction() {
   const [user, setUser] = useState<User>();
   const isPixType = watch("transaction_type");
   const priceWatch = watch("price");
+  const passwordWatch = watch("password");
   const isSufficientBalance = user?.balance - priceWatch >= 0;
-  console.log(isSufficientBalance);
+  const isIncorrectPassword =
+    user?.transactionPassword !== passwordWatch && passwordWatch !== "";
   const navigate = useNavigate();
 
   async function handleCreateTransactions(data: DataProps) {
@@ -200,7 +202,7 @@ function Transaction() {
         {...register("price", { valueAsNumber: true })}
       />
       {!isSufficientBalance && (
-        <p className={styles.alertBalance}>Saldo insuficiente!</p>
+        <p className={styles.alertInput}>Saldo insuficiente!</p>
       )}
 
       <label htmlFor="date">Data da transferência</label>
@@ -208,11 +210,14 @@ function Transaction() {
 
       <label htmlFor="password">Senha de transação</label>
       <input type="password" required {...register("password")} />
+      {isIncorrectPassword && (
+        <p className={styles.alertInput}>Senha incorreta!</p>
+      )}
 
       <button
         className={styles.buttonSubmit}
         type="submit"
-        disabled={isSubmitting || !isSufficientBalance}
+        disabled={isSubmitting || !isSufficientBalance || isIncorrectPassword}
       >
         Confirmar Transferência
       </button>
