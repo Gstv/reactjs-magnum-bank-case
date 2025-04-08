@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { IMaskInput } from "react-imask";
+import { useEffect, useState } from "react";
 
 import { api } from "../../services/api";
+import ResumeLayout from "./components/ResumeLayout";
+import { priceFormatter } from "../../utils/formatter";
 
 import styles from "./style.module.css";
-import { useEffect, useState } from "react";
-import { priceFormatter } from "../../utils/formatter";
 
 interface User {
   id: number;
@@ -45,6 +45,7 @@ function Transaction() {
     watch,
     register,
     handleSubmit,
+    getValues,
     formState: { isSubmitting },
     reset,
   } = useForm<DataProps>({
@@ -54,6 +55,7 @@ function Transaction() {
     },
   });
   const [user, setUser] = useState<User>();
+  const [openConfirmationPage, setOpenConfirmationPage] = useState(false);
   const isPixType = watch("transaction_type");
   const priceWatch = watch("price");
   const passwordWatch = watch("password");
@@ -137,90 +139,116 @@ function Transaction() {
       onSubmit={handleSubmit(handleCreateTransactions)}
       className={styles.container}
     >
-      <h1>MAGNUM BANK</h1>
-      <h2>TRANSFERÊNCIA</h2>
+      {!openConfirmationPage ? (
+        <div>
+          <h1>MAGNUM BANK</h1>
+          <h2>TRANSFERÊNCIA</h2>
 
-      <div className={styles.saldo}>
-        Saldo atual: {priceFormatter.format(user?.balance)}
-      </div>
+          <div className={styles.saldo}>
+            Saldo atual: {priceFormatter.format(user?.balance)}
+          </div>
 
-      <label htmlFor="transaction_type">Selecione o tipo de transação</label>
-      <div className={styles.radioGroup}>
-        <label>
-          <input type="radio" {...register("transaction_type")} value="TED" />{" "}
-          TED
-        </label>
-        <label>
-          <input type="radio" {...register("transaction_type")} value="PIX" />{" "}
-          PIX
-        </label>
-      </div>
+          <label htmlFor="transaction_type">
+            Selecione o tipo de transação
+          </label>
+          <div className={styles.radioGroup}>
+            <label>
+              <input
+                type="radio"
+                {...register("transaction_type")}
+                value="TED"
+              />{" "}
+              TED
+            </label>
+            <label>
+              <input
+                type="radio"
+                {...register("transaction_type")}
+                value="PIX"
+              />{" "}
+              PIX
+            </label>
+          </div>
 
-      <label htmlFor="document">CPF/CNPJ do favorecido</label>
-      <input placeholder="000.000.000-00" required {...register("document")} />
+          <label htmlFor="document">CPF/CNPJ do favorecido</label>
+          <input
+            placeholder="000.000.000-00"
+            required
+            {...register("document")}
+          />
 
-      <label htmlFor="name">Nome do favorecido</label>
-      <input
-        type="text"
-        placeholder="João Silva"
-        required
-        {...register("name")}
-      />
-
-      {isPixType === "PIX" ? (
-        <>
-          <label htmlFor="pix_key">Chave PIX</label>
+          <label htmlFor="name">Nome do favorecido</label>
           <input
             type="text"
-            placeholder="joao@email.com"
+            placeholder="João Silva"
             required
-            {...register("pix_key")}
+            {...register("name")}
           />
-        </>
+
+          {isPixType === "PIX" ? (
+            <>
+              <label htmlFor="pix_key">Chave PIX</label>
+              <input
+                type="text"
+                placeholder="joao@email.com"
+                required
+                {...register("pix_key")}
+              />
+            </>
+          ) : (
+            <>
+              <label htmlFor="bank">Banco</label>
+              <input
+                type="text"
+                placeholder="Banco"
+                required
+                {...register("bank")}
+              />
+
+              <label htmlFor="agency">Agência</label>
+              <input placeholder="4444" required {...register("agency")} />
+
+              <label htmlFor="account">Conta</label>
+              <input
+                placeholder="03763500-3"
+                required
+                {...register("account")}
+              />
+            </>
+          )}
+
+          <label htmlFor="price">Valor a transferir (R$)</label>
+          <input
+            placeholder="300,00"
+            required
+            {...register("price", { valueAsNumber: true })}
+          />
+          {!isSufficientBalance && (
+            <p className={styles.alertInput}>Saldo insuficiente!</p>
+          )}
+
+          <label htmlFor="date">Data da transferência</label>
+          <input type="date" required {...register("created_at")} />
+
+          <label htmlFor="password">Senha de transação</label>
+          <input type="password" required {...register("password")} />
+          {isIncorrectPassword && (
+            <p className={styles.alertInput}>Senha incorreta!</p>
+          )}
+
+          <button
+            className={styles.buttonSubmit}
+            onClick={() => setOpenConfirmationPage(true)}
+            disabled={
+              isSubmitting || !isSufficientBalance || isIncorrectPassword
+            }
+          >
+            Confirmar Transferência
+          </button>
+        </div>
       ) : (
-        <>
-          <label htmlFor="bank">Banco</label>
-          <input
-            type="text"
-            placeholder="Banco"
-            required
-            {...register("bank")}
-          />
-
-          <label htmlFor="agency">Agência</label>
-          <input placeholder="4444" required {...register("agency")} />
-
-          <label htmlFor="account">Conta</label>
-          <input placeholder="03763500-3" required {...register("account")} />
-        </>
+        <ResumeLayout formGetValues={getValues} />
       )}
-
-      <label htmlFor="price">Valor a transferir (R$)</label>
-      <input
-        placeholder="300,00"
-        required
-        {...register("price", { valueAsNumber: true })}
-      />
-      {!isSufficientBalance && (
-        <p className={styles.alertInput}>Saldo insuficiente!</p>
-      )}
-
-      <label htmlFor="date">Data da transferência</label>
-      <input type="date" {...register("created_at")} />
-
-      <label htmlFor="password">Senha de transação</label>
-      <input type="password" required {...register("password")} />
-      {isIncorrectPassword && (
-        <p className={styles.alertInput}>Senha incorreta!</p>
-      )}
-
-      <button
-        className={styles.buttonSubmit}
-        type="submit"
-        disabled={isSubmitting || !isSufficientBalance || isIncorrectPassword}
-      >
-        Confirmar Transferência
-      </button>
     </form>
   );
 }
