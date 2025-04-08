@@ -56,10 +56,9 @@ function Login() {
       agency_number,
       account_number,
       pix_key,
+      document,
       transaction_password,
       balance: 0,
-      cpf: document,
-      cpnj: document
     };
 
     try {
@@ -118,7 +117,10 @@ function Login() {
             <input type="pix_key" {...register("pix_key")} />
 
             <label htmlFor="transaction_password">Senha de transação</label>
-            <input type="transaction_password" {...register("transaction_password")} />
+            <input
+              type="transaction_password"
+              {...register("transaction_password")}
+            />
 
             <label htmlFor="email">Email</label>
             <input type="email" {...register("email")} />

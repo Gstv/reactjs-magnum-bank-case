@@ -31,6 +31,10 @@ O sistema deve permitir que os usuários realizem operações básicas de gestã
 - Data da transferência (TED, PIX);
 - Exibir o resumo da transferência (TED, PIX).
 
+## Usuário para teste:
+- Email: mariano@teste.com
+- Senha: 1234
+
 ## Comandos e instalação:
 
 Instalar dependências:

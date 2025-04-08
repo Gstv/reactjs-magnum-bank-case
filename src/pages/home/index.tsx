@@ -78,6 +78,11 @@ function Home() {
     navigate("/transaction");
   }
 
+  function handleLogout() {
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>MAGNUM BANK</header>
@@ -89,7 +94,7 @@ function Home() {
 
       <section className={styles.actions}>
         <button onClick={handleNavigateToTransactionPage}>Transferir</button>
-        <button onClick={handleNavigateToTransactionPage}>Pagar</button>
+        <button onClick={handleLogout}>Sair da conta</button>
       </section>
 
       <section className={styles.transactions}>
@@ -99,7 +104,7 @@ function Home() {
             <li key={transaction.id}>
               <div className={styles.transactionDetail}>
                 <span>{transaction.transactionType}</span>
-                <span className={styles.negative}>
+                <span className={styles.valueText}>
                   {transaction.type === "income" ? "+" : "-"}
                   {priceFormatter.format(transaction.price)}
                 </span>

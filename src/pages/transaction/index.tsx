@@ -245,6 +245,10 @@ function Transaction() {
           >
             Confirmar Transferência
           </button>
+
+          <button className={styles.buttonSubmit} onClick={() => navigate("/")}>
+            Voltar para home
+          </button>
         </div>
       ) : (
         <ResumeLayout formGetValues={getValues} />
