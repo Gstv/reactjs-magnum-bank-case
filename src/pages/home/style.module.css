@@ -1,0 +1,94 @@
+.container {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2a64f6;
+  margin-bottom: 24px;
+}
+
+.balanceCard {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.balance {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.actions button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2a64f6;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.actions button:hover {
+  background-color: #1f4ed8;
+}
+
+.transactions {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.transactions h3 {
+  margin-bottom: 12px;
+  color: #444;
+  font-size: 16px;
+}
+
+.transactions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transactions li {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.transactionDetail {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  color: #333;
+}
+
+.transactionDate {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.valueText {
+  color: #1f4ed8;
+}

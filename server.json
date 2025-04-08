@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$Y1Z.4k2GvjZjDex9v5j3ION6U7snozCcP6exgLn334mN3/lvI2tLy",
+      "name": "Admin",
+      "id": 1,
+      "balance": 0,
+      "document": "50220166000",
+      "transaction_password": "1111"
+    },
+    {
+      "email": "teste@test.com",
+      "password": "$2a$10$KHDzEMvHAWs93Q8PvHFCAOa/9Fxp8iOzhpU1x4VGfzlW0sqoa5tdq",
+      "name": "Teste",
+      "id": 2,
+      "balance": 600,
+      "document": "20220166000",
+      "transaction_password": "3333"
+    },
+    {
+      "email": "mariano@teste.com",
+      "password": "$2a$10$sgZZ3yooohJUubqkKe1RXes8Ko9EcTzrSsRrzhtotqLR1q4aPoVLK",
+      "name": "Mariano",
+      "agency_number": "0357",
+      "account_number": "06832512",
+      "pix_key": "10220166000",
+      "transaction_password": "1234",
+      "balance": 910,
+      "document": "10220166000",
+      "id": 3
+    },
+    {
+      "email": "gstv.almeida09@gmail.com",
+      "password": "$2a$10$WmVj.KTMWLpQr6kQ5wq7Ou1qm7rsmLePECo585vrx/lpjiGcfvFqy",
+      "name": "Gustavo",
+      "agency_number": "1197",
+      "account_number": "055742-3",
+      "pix_key": "03657345000",
+      "document": "03657345000",
+      "transaction_password": "1234",
+      "balance": 90,
+      "id": 4
+    }
+  ],
+  "transactions": [
+    {
+      "transaction_type": "PIX",
+      "price": 100,
+      "document": "03657345000",
+      "name": "Gustavo",
+      "bank": "",
+      "agency": "",
+      "account": "",
+      "created_at": "2025-04-08",
+      "password": "1234",
+      "pix_key": "03657345000",
+      "user_id": 3,
+      "type": "outcome",
+      "id": 1
+    },
+    {
+      "transaction_type": "PIX",
+      "price": 100,
+      "document": "03657345000",
+      "name": "Gustavo",
+      "bank": "",
+      "agency": "",
+      "account": "",
+      "created_at": "2025-04-08",
+      "password": "1234",
+      "pix_key": "03657345000",
+      "user_id": 4,
+      "type": "income",
+      "id": 2
+    },
+    {
+      "transaction_type": "TED",
+      "price": 10,
+      "document": "10220166000",
+      "name": "Mariano",
+      "bank": "Santander",
+      "agency": "3333",
+      "account": "34343434",
+      "created_at": "2025-04-08",
+      "password": "1234",
+      "user_id": 4,
+      "type": "outcome",
+      "id": 3
+    },
+    {
+      "transaction_type": "TED",
+      "price": 10,
+      "document": "10220166000",
+      "name": "Mariano",
+      "bank": "Santander",
+      "agency": "3333",
+      "account": "34343434",
+      "created_at": "2025-04-08",
+      "password": "1234",
+      "user_id": 3,
+      "type": "income",
+      "id": 4
+    }
+  ]
+}
