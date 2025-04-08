@@ -1,30 +1,32 @@
 {
   "users": [
     {
-      "id": "1",
-      "recipient_email": "gstv.almeida@gmail.com",
-      "recipient_password": "senha123",
-      "recipient_name": "Gustavo André",
-      "current_balance": 5000,
-      "agency_number": "7048",
-      "account_number": "718352",
-      "pix_key": "04580453735",
-      "recipient_cpf": "04580453735",
-      "recipient_cnpj": "",
-      "transaction_password": "12344"
+      "email": "admin@admin.com",
+      "password": "$2a$10$Y1Z.4k2GvjZjDex9v5j3ION6U7snozCcP6exgLn334mN3/lvI2tLy",
+      "name": "Admin",
+      "id": 1,
+      "balance": 0,
+      "document": "50220166000"
     },
     {
-      "id": "2",
-      "recipient_email": "joao@gmail.com",
-      "recipient_password": "senha123",
-      "recipient_name": "João Silva",
-      "current_balance": 1000,
-      "agency_number": "8216",
-      "account_number": "626880",
-      "pix_key": "joao@gmail.com",
-      "recipient_cpf": "",
-      "recipient_cnpj": "87562667000166",
-      "transaction_password": "12344"
+      "email": "teste@test.com",
+      "password": "$2a$10$KHDzEMvHAWs93Q8PvHFCAOa/9Fxp8iOzhpU1x4VGfzlW0sqoa5tdq",
+      "name": "Teste",
+      "id": 2,
+      "balance": 0,
+      "document": "20220166000"
+    },
+    {
+      "email": "mariano@teste.com",
+      "password": "$2a$10$sgZZ3yooohJUubqkKe1RXes8Ko9EcTzrSsRrzhtotqLR1q4aPoVLK",
+      "name": "Mariano",
+      "agency_number": "0357",
+      "account_number": "06832512",
+      "pix_key": "10220166000",
+      "transaction_password": "1234",
+      "balance": 0,
+      "document": "10220166000",
+      "id": 3
     }
   ],
   "transactions": [
@@ -97,6 +99,86 @@
       "password": "1",
       "type": "income",
       "user_id": 1
+    },
+    {
+      "transaction_type": "TED",
+      "name": "1",
+      "bank": "1",
+      "created_at": "2025-04-07",
+      "password": "1",
+      "type": "income",
+      "user_id": 1,
+      "id": "kVPWmfb"
+    },
+    {
+      "transaction_type": "TED",
+      "name": "2",
+      "bank": "2",
+      "created_at": "2025-04-07",
+      "password": "2",
+      "type": "income",
+      "user_id": 1,
+      "id": "nJwQ28R"
+    },
+    {
+      "transaction_type": "TED",
+      "name": "2",
+      "bank": "2",
+      "created_at": "2025-04-07",
+      "password": "2",
+      "type": "income",
+      "user_id": 202695,
+      "id": "BDnyhQc"
+    },
+    {
+      "transaction_type": "TED",
+      "name": "2",
+      "bank": "2",
+      "created_at": "2025-04-09",
+      "password": "2",
+      "type": "income",
+      "user_id": 315123,
+      "id": "78mYcaf"
+    },
+    {
+      "transaction_type": "TED",
+      "name": "1",
+      "bank": "1",
+      "created_at": "2025-04-07",
+      "password": "1",
+      "type": "income",
+      "user_id": 165540,
+      "id": "QKoW-jg"
+    },
+    {
+      "transaction_type": "TED",
+      "name": "1",
+      "bank": "2",
+      "created_at": "2025-04-07",
+      "password": "2",
+      "type": "income",
+      "user_id": 570431,
+      "id": "C9vrVGL"
+    },
+    {
+      "transaction_type": "TED",
+      "name": "2",
+      "bank": "2",
+      "created_at": "2025-04-09",
+      "password": "2",
+      "type": "income",
+      "user_id": 865967,
+      "id": "BRQN6Sw"
+    },
+    {
+      "transaction_type": "TED",
+      "name": "2",
+      "bank": "2",
+      "created_at": "2025-04-07",
+      "password": "2",
+      "type": "income",
+      "user_id": 980491,
+      "id": "yuu9GTj"
     }
   ]
 }

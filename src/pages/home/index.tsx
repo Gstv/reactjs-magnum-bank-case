@@ -32,31 +32,50 @@ interface TransactionRequest {
 function Home() {
   const navigate = useNavigate();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
-  const [user, setUser] = useState<User>({
-    id: 1,
-    name: "Gustavo André",
-    balance: 5000,
-  });
+  const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    api
-      .get<TransactionRequest[]>(`transactions/?user_id=${user.id}`)
-      .then(({ data }) => {
-        setTransactions(
-          data.map((transaction) => ({
-            ...transaction,
-            transactionType: transaction.transaction_type,
-            createdAt: transaction.created_at,
-          }))
-        );
-      })
-      .catch((error) => {
-        console.error("Erro ao buscar dados:", error);
-      });
+    if (user) {
+      api
+        .get<TransactionRequest[]>(`transactions/?user_id=${user.id}`)
+        .then(({ data }) => {
+          setTransactions(
+            data.map((transaction) => ({
+              ...transaction,
+              transactionType: transaction.transaction_type,
+              createdAt: transaction.created_at,
+            }))
+          );
+        })
+        .catch((error) => {
+          console.error("Erro ao buscar dados:", error);
+        });
+    }
   }, [user]);
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+      const { id } = JSON.parse(storedUser);
+
+      api
+        .get(`users/${id}`)
+        .then(({ data }) => {
+          setUser({
+            id: data.id,
+            name: data.name,
+            balance: data.balance,
+          });
+        })
+        .catch((error) => {
+          console.error("Erro ao buscar dados:", error);
+        });
+    }
+  }, []);
+
   function handleNavigateToTransactionPage() {
-    navigate('/transaction');
+    navigate("/transaction");
   }
 
   return (
@@ -65,7 +84,7 @@ function Home() {
 
       <section className={styles.balanceCard}>
         <h2>Saldo disponível</h2>
-        <p className={styles.balance}>{priceFormatter.format(user.balance)}</p>
+        <p className={styles.balance}>{priceFormatter.format(user?.balance)}</p>
       </section>
 
       <section className={styles.actions}>

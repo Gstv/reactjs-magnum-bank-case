@@ -43,7 +43,7 @@ input {
   font-size: 14px;
 }
 
-button {
+.buttonSubmit {
   padding: 12px;
   background-color: #2a64f6;
   color: #fff;
@@ -54,6 +54,18 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #1f4ed8;
+.buttonSubmit:hover {
+  color: #1f4ed8;
+}
+
+.buttonRegisterIn {
+  font-size: 12px;
+  margin-top: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttonRegisterIn:hover {
+  color: #1f4ed8;
 }
