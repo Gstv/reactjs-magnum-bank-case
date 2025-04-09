@@ -3,8 +3,10 @@ import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 
 import api from "../../services/api";
+import Button from "../components/Button";
+import Input from "../components/Input";
 
-import styles from "./style.module.css";
+import { ButtonRegister, LoginContainer, LoginForm } from "./index.styled";
 
 interface FormLoginData {
   name?: string;
@@ -70,82 +72,114 @@ function Login() {
   };
 
   return (
-    <div className={styles.container}>
-      <form className={styles.loginBox} onSubmit={handleSubmit(handleLogin)}>
+    <LoginContainer>
+      <LoginForm onSubmit={handleSubmit(handleLogin)}>
         <h1>MAGNUM BANK</h1>
         <h2>LOGIN</h2>
 
         {registerIn ? (
           <>
-            <label htmlFor="email">Email</label>
-            <input type="email" {...register("email")} />
+            <Input
+              id="email"
+              type="text"
+              labelText="Email"
+              required
+              {...register("email")}
+            />
 
-            <label htmlFor="password">Senha</label>
-            <input type="password" {...register("password")} />
+            <Input
+              id="password"
+              type="password"
+              labelText="Senha"
+              required
+              {...register("password")}
+            />
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={styles.buttonSubmit}
-            >
+            <Button type="submit" disabled={isSubmitting}>
               Entrar
-            </button>
+            </Button>
 
-            <button
-              type="reset"
-              className={styles.buttonRegisterIn}
-              onClick={() => setRegisterIn(false)}
-            >
+            <ButtonRegister type="reset" onClick={() => setRegisterIn(false)}>
               Não tem conta? Cadastre-se aqui
-            </button>
+            </ButtonRegister>
           </>
         ) : (
           <>
-            <label htmlFor="name">Nome</label>
-            <input type="name" {...register("name")} />
+            <Input
+              id="name"
+              type="text"
+              labelText="Nome"
+              required
+              {...register("name")}
+            />
 
-            <label htmlFor="document">Documento (CPF/CNPJ)</label>
-            <input type="document" {...register("document")} />
+            <Input
+              id="document"
+              type="text"
+              labelText="Documento (CPF/CNPJ)"
+              required
+              {...register("document")}
+            />
 
-            <label htmlFor="name">Agência</label>
-            <input type="agency_number" {...register("agency_number")} />
+            <Input
+              id="agency_number"
+              type="text"
+              labelText="Agência"
+              required
+              {...register("agency_number")}
+            />
 
-            <label htmlFor="account_numbere">Conta Corrente</label>
-            <input type="account_number" {...register("account_number")} />
+            <Input
+              id="account_number"
+              type="text"
+              labelText="Conta Corrente"
+              required
+              {...register("account_number")}
+            />
 
-            <label htmlFor="pix_key">Chave PIX</label>
-            <input type="pix_key" {...register("pix_key")} />
+            <Input
+              id="pix_key"
+              type="text"
+              labelText="Chave PIX"
+              required
+              {...register("pix_key")}
+            />
 
-            <label htmlFor="transaction_password">Senha de transação</label>
-            <input
-              type="transaction_password"
+            <Input
+              id="transaction_password"
+              type="text"
+              labelText="Senha de transação"
+              required
               {...register("transaction_password")}
             />
 
-            <label htmlFor="email">Email</label>
-            <input type="email" {...register("email")} />
+            <Input
+              id="email"
+              type="text"
+              labelText="Email"
+              required
+              {...register("email")}
+            />
 
-            <label htmlFor="password">Senha</label>
-            <input type="password" {...register("password")} />
+            <Input
+              id="password"
+              type="password"
+              labelText="Senha"
+              required
+              {...register("password")}
+            />
 
-            <button
-              className={styles.buttonSubmit}
-              onClick={() => handleRegisterIn()}
-            >
+            <Button onClick={() => handleRegisterIn()}>
               Cadastrar e entrar
-            </button>
+            </Button>
 
-            <button
-              type="reset"
-              className={styles.buttonRegisterIn}
-              onClick={() => setRegisterIn(true)}
-            >
+            <ButtonRegister type="reset" onClick={() => setRegisterIn(true)}>
               Voltar para o início
-            </button>
+            </ButtonRegister>
           </>
         )}
-      </form>
-    </div>
+      </LoginForm>
+    </LoginContainer>
   );
 }
 

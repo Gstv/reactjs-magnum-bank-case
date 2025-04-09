@@ -1,6 +1,7 @@
 import { dateFormatter, priceFormatter } from "../../../utils/formatter";
+import Button from "../../components/Button";
 
-import styles from "../style.module.css";
+import { Text } from "../index.styled";
 
 interface ResumeLayoutProps {
   readonly formGetValues: () => {
@@ -33,39 +34,34 @@ function ResumeLayout({ formGetValues }: ResumeLayoutProps) {
       <h2>CONFIRMAÇÃO</h2>
 
       <h4>Documento do favorecido</h4>
-      <p className={styles.resumeLayoutText}>{document}</p>
+      <Text>{document}</Text>
 
       <h4>Nome do favorecido</h4>
-      <p className={styles.resumeLayoutText}>{name}</p>
+      <Text>{name}</Text>
 
       {transaction_type === "TED" && (
         <>
           <h4>Banco</h4>
-          <p className={styles.resumeLayoutText}>{bank}</p>
+          <Text>{bank}</Text>
 
           <h4>Conta</h4>
-          <p className={styles.resumeLayoutText}>{account}</p>
+          <Text>{account}</Text>
 
           <h4>Agência</h4>
-          <p className={styles.resumeLayoutText}>{agency}</p>
+          <Text>{agency}</Text>
         </>
       )}
 
       <h4>Valor</h4>
-      <p className={styles.resumeLayoutText}>{priceFormatter.format(price)}</p>
+      <Text>{priceFormatter.format(price)}</Text>
 
       <h4>Data</h4>
-      <p className={styles.resumeLayoutText}>
-        {dateFormatter.format(new Date(created_at))}
-      </p>
+      <Text>{dateFormatter.format(new Date(created_at))}</Text>
 
       <h4>Tipo:</h4>
-      <p className={styles.resumeLayoutText}>{transaction_type}</p>
+      <Text>{transaction_type}</Text>
 
-      <button className={styles.buttonSubmit} type="submit">
-        {" "}
-        Confirmar transferência
-      </button>
+      <Button type="submit">Confirmar transferência</Button>
     </div>
   );
 }

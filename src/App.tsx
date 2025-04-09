@@ -1,13 +1,15 @@
-import Home from "./pages/home";
-import Login from "./pages/login";
-import Transaction from "./pages/transaction";
+import { BrowserRouter } from "react-router";
+
+import AppRoutes from "./routes";
+import { GlobalStyle } from "./globalStyle";
 
 function App() {
-  return <>
-    <Home />
-    <Login />
-    <Transaction />
-  </>
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+      <GlobalStyle />
+    </BrowserRouter>
+  );
 }
 
 export default App;
