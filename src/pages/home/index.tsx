@@ -2,14 +2,23 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 import { api } from "../../services/api";
-import { dateFormatter, priceFormatter } from "../../utils/formatter";
+import { priceFormatter } from "../../utils/formatter";
+import TransactionRow from "../components/TransactionRow";
+import Button from "../components/Button";
 
-import styles from "./style.module.css";
+import {
+  ActionsSection,
+  BalanceCard,
+  BalanceText,
+  Header,
+  HomeContainer,
+  TransactionsSection,
+} from "./index.styled";
 
 interface Transaction {
   id: number;
   transactionType: string;
-  type: string;
+  type: "income" | "outcome";
   price: number;
   createdAt: Date;
 }
@@ -23,7 +32,7 @@ interface User {
 interface TransactionRequest {
   id: number;
   transaction_type: string;
-  type: string;
+  type: "income" | "outcome";
   price: number;
   created_at: Date;
   user_id: number;
@@ -84,39 +93,34 @@ function Home() {
   }
 
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>MAGNUM BANK</header>
+    <HomeContainer>
+      <Header>MAGNUM BANK</Header>
 
-      <section className={styles.balanceCard}>
+      <BalanceCard>
         <h2>Saldo disponível</h2>
-        <p className={styles.balance}>{priceFormatter.format(user?.balance)}</p>
-      </section>
+        <BalanceText>{priceFormatter.format(user?.balance)}</BalanceText>
+      </BalanceCard>
 
-      <section className={styles.actions}>
-        <button onClick={handleNavigateToTransactionPage}>Transferir</button>
-        <button onClick={handleLogout}>Sair da conta</button>
-      </section>
+      <ActionsSection>
+        <Button onClick={handleNavigateToTransactionPage}>Transferir</Button>
+        <Button onClick={handleLogout}>Sair da conta</Button>
+      </ActionsSection>
 
-      <section className={styles.transactions}>
+      <TransactionsSection>
         <h3>Últimas transações</h3>
         <ul>
           {transactions.map((transaction) => (
-            <li key={transaction.id}>
-              <div className={styles.transactionDetail}>
-                <span>{transaction.transactionType}</span>
-                <span className={styles.valueText}>
-                  {transaction.type === "income" ? "+" : "-"}
-                  {priceFormatter.format(transaction.price)}
-                </span>
-              </div>
-              <div className={styles.transactionDate}>
-                {dateFormatter.format(new Date(transaction.createdAt))}
-              </div>
-            </li>
+            <TransactionRow
+              name={transaction.transactionType}
+              type={transaction.type}
+              date={transaction.createdAt}
+              value={transaction.price}
+              key={transaction.id}
+            />
           ))}
         </ul>
-      </section>
-    </div>
+      </TransactionsSection>
+    </HomeContainer>
   );
 }
 
